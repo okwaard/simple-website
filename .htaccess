@@ -1,3 +1,8 @@
 RewriteEngine On
+
+# Redirect URLs without .html to the actual .html file
 RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^([^/]+)/?$ $1.html [L]
+RewriteRule ^(.*)$ $1.html [NC,L]
+
+# Ensure directory-based navigation works
+DirectoryIndex index.html
